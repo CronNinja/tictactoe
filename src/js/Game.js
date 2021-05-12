@@ -4,8 +4,8 @@ import calculateWinner from './calculateWinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import TableIT from './TableIT';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -64,19 +64,10 @@ export default class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
-          <Button onClick={() => this.jumpTo(move)}>{desc}</Button>
-        </li>
+        <Button onClick={() => this.jumpTo(move)}>{desc}</Button>
       );
     });
 
-    const logs = this.state.log.map((step, log) => {
-      return (
-        <li key={log}>
-          {step}
-        </li>
-      );
-    });
     let status;
     if (winner) {
       status = "Winner: " + winner;
@@ -96,19 +87,11 @@ export default class Game extends React.Component {
         </Row>
         <Row>
           <Col md="auto">
-          <ListGroup as="ol">
-            {
-              moves.map(move => (<ListGroup.Item>{ move }</ListGroup.Item>))
-            }
-          </ListGroup>
+          <TableIT rowItems={ moves } name="Time Travel"/>
           </Col>
           <Col md="auto">
-            <ListGroup as="ol">
-              {
-                logs.map(log => (<ListGroup.Item>{ log }</ListGroup.Item>))
-              }
-            </ListGroup>
-            </Col>
+            <TableIT rowItems={ this.state.log } name="Log"/>
+          </Col>
         </Row>
         
       </Container>
