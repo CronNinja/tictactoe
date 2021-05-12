@@ -2,6 +2,9 @@
  
  A simple React App to practice managing state via diffent currencies.
 
+## Demo
+https://cronninja.github.io/tictactoe/
+
 ## Roadmap
 - UI Updates
 - Timer
