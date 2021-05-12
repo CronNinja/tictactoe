@@ -77,8 +77,11 @@ export default class Game extends React.Component {
 
     return (
       <Container>
-        <h2>{ status }</h2>
-        <Button variant="danger" onClick={this.reset}>Reset</Button>
+        <Row>
+          <Col md={4}><h2>{ status }</h2></Col>
+          <Col md={{ span: 4, offset: 4 }}><Button variant="danger" onClick={this.reset}>Reset</Button></Col>
+        </Row>
+
         <Row className="game-board justify-content-md-center">
             <Board
               squares={current.squares}
