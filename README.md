@@ -8,6 +8,7 @@ https://cronninja.github.io/tictactoe/
 ## Roadmap
 - UI Updates
 - Timer
+- Track W/L
 
 ## Available Scripts
 

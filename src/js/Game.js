@@ -87,7 +87,7 @@ export default class Game extends React.Component {
         </Row>
         <Row>
           <Col md="auto">
-          <TableIT rowItems={ moves } name="Time Travel"/>
+            <TableIT rowItems={ moves } name="Time Travel"/>
           </Col>
           <Col md="auto">
             <TableIT rowItems={ this.state.log } name="Log"/>
