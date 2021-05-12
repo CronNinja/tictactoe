@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/CronNinja/tictactoe/static/css/main.591f6d61.chunk.css",
-    "main.js": "/CronNinja/tictactoe/static/js/main.20d16a4c.chunk.js",
-    "main.js.map": "/CronNinja/tictactoe/static/js/main.20d16a4c.chunk.js.map",
+    "main.js": "/CronNinja/tictactoe/static/js/main.e6963a3a.chunk.js",
+    "main.js.map": "/CronNinja/tictactoe/static/js/main.e6963a3a.chunk.js.map",
     "runtime-main.js": "/CronNinja/tictactoe/static/js/runtime-main.cc9b3af0.js",
     "runtime-main.js.map": "/CronNinja/tictactoe/static/js/runtime-main.cc9b3af0.js.map",
     "static/css/2.150d169a.chunk.css": "/CronNinja/tictactoe/static/css/2.150d169a.chunk.css",
-    "static/js/2.a8860c3e.chunk.js": "/CronNinja/tictactoe/static/js/2.a8860c3e.chunk.js",
-    "static/js/2.a8860c3e.chunk.js.map": "/CronNinja/tictactoe/static/js/2.a8860c3e.chunk.js.map",
+    "static/js/2.4fb5a705.chunk.js": "/CronNinja/tictactoe/static/js/2.4fb5a705.chunk.js",
+    "static/js/2.4fb5a705.chunk.js.map": "/CronNinja/tictactoe/static/js/2.4fb5a705.chunk.js.map",
     "index.html": "/CronNinja/tictactoe/index.html",
     "static/css/2.150d169a.chunk.css.map": "/CronNinja/tictactoe/static/css/2.150d169a.chunk.css.map",
     "static/css/main.591f6d61.chunk.css.map": "/CronNinja/tictactoe/static/css/main.591f6d61.chunk.css.map",
-    "static/js/2.a8860c3e.chunk.js.LICENSE.txt": "/CronNinja/tictactoe/static/js/2.a8860c3e.chunk.js.LICENSE.txt"
+    "static/js/2.4fb5a705.chunk.js.LICENSE.txt": "/CronNinja/tictactoe/static/js/2.4fb5a705.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cc9b3af0.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.a8860c3e.chunk.js",
+    "static/js/2.4fb5a705.chunk.js",
     "static/css/main.591f6d61.chunk.css",
-    "static/js/main.20d16a4c.chunk.js"
+    "static/js/main.e6963a3a.chunk.js"
   ]
 }
