@@ -1,13 +1,8 @@
 import Table from 'react-bootstrap/Table';
 
-function TableIT({rowItems, name}) {
+function TableIt({rowItems, name}) {
   return (
     <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th>{ name }</th>
-      </tr>
-    </thead>
     <tbody>
       {
         rowItems.map((item, index) => (
@@ -21,4 +16,4 @@ function TableIT({rowItems, name}) {
   );
 }
 
-export default TableIT
+export default TableIt

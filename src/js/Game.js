@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import TableIT from './TableIT';
+import Popit from './Popit';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -90,10 +90,10 @@ export default class Game extends React.Component {
         </Row>
         <Row>
           <Col md="auto">
-            <TableIT rowItems={ moves } name="Time Travel"/>
+            <Popit title="Time Travel" rowItems={ moves }/>
           </Col>
           <Col md="auto">
-            <TableIT rowItems={ this.state.log } name="Log"/>
+            <Popit title="Log" rowItems={ this.state.log }/>
           </Col>
         </Row>
         
