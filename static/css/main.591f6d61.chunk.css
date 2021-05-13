@@ -1,2 +1,0 @@
-.board-row:after{clear:both;content:"";display:table}.grid-container{display:grid;grid-template-columns:auto auto auto}.square{height:4rem;width:4rem;text-align:center;padding:0}.square:focus{outline:none}.kbd-navigation .square:focus{background:#ddd}.game-board{display:flex;flex-direction:row;align-self:center}
-/*# sourceMappingURL=main.591f6d61.chunk.css.map */
