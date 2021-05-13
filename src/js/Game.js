@@ -76,13 +76,14 @@ export default class Game extends React.Component {
     }
 
     return (
-      <Container>
-        <Row>
-          <Col md={4}><h2>{ status }</h2></Col>
-          <Col md={{ span: 4, offset: 4 }}><Button variant="danger" onClick={this.reset}>Reset</Button></Col>
+      <Container className="justify-content-md-center">
+        <Row className="justify-content-md-center">
+          <Col sm="auto"><h4>{ status }</h4></Col>
+          <Col><h4>Last Move: { this.state.log[this.state.log.length - 1]}</h4></Col>
+          <Col><Button variant="danger" onClick={this.reset}>Reset</Button></Col>
         </Row>
-
-        <Row className="game-board justify-content-md-center">
+        
+        <Row className="game-board">
             <Board
               squares={current.squares}
               onClick={i => this.handleClick(i)}

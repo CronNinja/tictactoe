@@ -25,7 +25,7 @@ export default class Popit extends React.Component {
         { this.props.title }
         </Button>
   
-        <Modal show={this.state.show} onHide={this.handleClose} animation={ false }>
+        <Modal show={this.state.show} onHide={this.handleClose} animation={ false } size="sm" scrollable="true">
           <Modal.Header closeButton>
             <Modal.Title>{ this.props.title }</Modal.Title>
           </Modal.Header>
