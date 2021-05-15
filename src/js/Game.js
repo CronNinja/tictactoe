@@ -3,9 +3,9 @@ import Board from './Board'
 import calculateWinner from './calculateWinner';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Popit from './Popit';
+import Navbar from 'react-bootstrap/Navbar';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -76,29 +76,30 @@ export default class Game extends React.Component {
     }
 
     return (
-      <Container className="justify-content-md-center">
-        <Row className="justify-content-md-center">
-          <Col sm="auto"><h4>{ status }</h4></Col>
-          <Col><h4>Last Move: { this.state.log[this.state.log.length - 1]}</h4></Col>
-          <Col><Button variant="danger" onClick={this.reset}>Reset</Button></Col>
-        </Row>
-        
-        <Row className="game-board">
+      <>
+        <Navbar variant="dark" bg="dark">
+          <Container>
+            <Navbar.Brand href="#">TicTacToe</Navbar.Brand>
+            <Popit title="Time Travel" rowItems={ moves }/>
+            <Popit title="Log" rowItems={ this.state.log }/>
+            <Button variant="danger" onClick={ this.reset }>Reset</Button>
+          </Container>
+        </Navbar>
+        <Container>
+          <Row>
+            <h4>{ status }</h4>
+          </Row>
+          <Row className="game-board">
             <Board
               squares={current.squares}
               onClick={i => this.handleClick(i)}
             />
-        </Row>
-        <Row>
-          <Col md="auto">
-            <Popit title="Time Travel" rowItems={ moves }/>
-          </Col>
-          <Col md="auto">
-            <Popit title="Log" rowItems={ this.state.log }/>
-          </Col>
-        </Row>
-        
-      </Container>
+          </Row>
+          <Row>
+            <h4>Last Move: { this.state.log[this.state.log.length - 1]}</h4>
+          </Row>          
+        </Container>
+      </>
     );
   }
 }
