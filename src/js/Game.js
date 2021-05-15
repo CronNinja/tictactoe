@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/index.css';
 import Board from './Board'
 import calculateWinner from './calculateWinner';
 import Container from 'react-bootstrap/Container';
