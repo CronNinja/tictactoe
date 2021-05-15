@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Popit from './Popit';
 import Navbar from 'react-bootstrap/Navbar';
+import ToastIt from './ToastIt';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -18,10 +19,13 @@ export default class Game extends React.Component {
         }
       ],
       stepNumber: 0,
+      score: { x: 0, o: 0},
       xIsNext: true,
-      log: []
+      log: [],
+      showToast: false
     };
     this.baseState = this.state;
+    this.toggleToast = this.toggleToast.bind(this);
   }
   reset = () => {
     this.setState(this.baseState);
@@ -45,6 +49,9 @@ export default class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
       log: this.state.log.concat([turn + " Selected: " + i%3 + '|' + Math.floor(i/3)])
     });
+    this.setState({
+      showToast: true
+    })
   }
 
   jumpTo(step) {
@@ -55,6 +62,11 @@ export default class Game extends React.Component {
     });
   }
 
+  toggleToast(){
+    this.setState({
+      showToast: false
+    });
+  }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -96,10 +108,8 @@ export default class Game extends React.Component {
               onClick={i => this.handleClick(i)}
             />
           </Row>
-          <Row>
-            <h4>{ this.state.log[this.state.log.length - 1]}</h4>
-          </Row>          
         </Container>
+        <ToastIt toggleText={ this.state.log[this.state.log.length - 1]} show={ this.state.showToast} onClose={ this.toggleToast }/>
       </>
     );
   }
