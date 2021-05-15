@@ -96,7 +96,7 @@ export default class Game extends React.Component {
             />
           </Row>
           <Row>
-            <h4>Last Move: { this.state.log[this.state.log.length - 1]}</h4>
+            <h4>{ this.state.log[this.state.log.length - 1]}</h4>
           </Row>          
         </Container>
       </>
