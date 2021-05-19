@@ -21,7 +21,7 @@ export default class Popit extends React.Component {
   render(){
     return (
       <>
-        <Button variant="primary" onClick={this.handleShow}>
+        <Button variant={this.props.buttonColor} onClick={this.handleShow}>
         { this.props.title }
         </Button>
   

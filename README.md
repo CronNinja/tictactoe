@@ -6,7 +6,7 @@
 https://cronninja.github.io/tictactoe/
 
 ## Roadmap
-- Combine time travel and log
+- AI / Computer Play
 - UI Updates
 - Timer
 - Track W/L

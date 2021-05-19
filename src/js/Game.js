@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Popit from './Popit';
 import Navbar from 'react-bootstrap/Navbar';
 import ToastIt from './ToastIt';
+import AI from './AI'
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -20,9 +21,10 @@ export default class Game extends React.Component {
       ],
       stepNumber: 0,
       score: { x: 0, o: 0},
-      xIsNext: true,
+      xIsNext: false,
       log: [],
-      showToast: false
+      showToast: false,
+      com: [false, false]
     };
     this.baseState = this.state;
     this.toggleToast = this.toggleToast.bind(this);
@@ -30,12 +32,13 @@ export default class Game extends React.Component {
   reset = () => {
     this.setState(this.baseState);
   }
-  handleClick(i) {
+  updateGameboard(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     const turn = this.state.xIsNext ? "X" : "O";
-    if (calculateWinner(squares) || squares[i]) {
+    const winner = calculateWinner(squares);
+    if (winner || squares[i]) {
       return;
     }
     squares[i] = turn;
@@ -47,11 +50,13 @@ export default class Game extends React.Component {
       ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
-      log: this.state.log.concat([turn + " Selected: " + i%3 + '|' + Math.floor(i/3)])
-    });
-    this.setState({
+      log: this.state.log.concat([turn + " Selected: " + i%3 + '|' + Math.floor(i/3)]),
       showToast: true
-    })
+    });
+    if((this.state.com[0] && this.state.xIsNext) || (this.state.com[1] && !this.state.xIsNext)){
+      console.log(current)
+      setTimeout(() => { this.updateGameboard(AI(squares)) }, 1000);
+    }
   }
 
   jumpTo(step) {
@@ -66,6 +71,12 @@ export default class Game extends React.Component {
     this.setState({
       showToast: false
     });
+  }
+
+  playCom(){
+  //  this.setState({ com: [true, true] });
+  //  this.handleClick(Math.floor(Math.random()* 8));
+  console.log(this.state)
   }
   render() {
     const history = this.state.history;
@@ -93,8 +104,9 @@ export default class Game extends React.Component {
         <Navbar variant="dark" bg="dark">
           <Container>
             <Navbar.Brand href="#">TicTacToe</Navbar.Brand>
-            <Popit title="Time Travel" rowItems={ moves }/>
+            <Popit title="Time Travel" rowItems={ moves } buttonColor={"success"}/>
             <Popit title="Log" rowItems={ this.state.log }/>
+            <Button variant="info" onClick={ this.playCom} disabled={(!this.state.com[0] || !this.state.com[1])}>Auto</Button>
             <Button variant="danger" onClick={ this.reset }>Reset</Button>
           </Container>
         </Navbar>
@@ -105,7 +117,7 @@ export default class Game extends React.Component {
           <Row className="game-board">
             <Board
               squares={current.squares}
-              onClick={i => this.handleClick(i)}
+              onClick={i => this.updateGameboard(i)}
             />
           </Row>
         </Container>
